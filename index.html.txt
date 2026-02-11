@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>משחק זיכרון - אוצר מילים</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f0f0f0;
+        padding: 20px;
+        text-align: center;
+    }
+    .page-container {
+        background-color: white;
+        width: 21cm; /* A4 width */
+        height: 29.7cm; /* A4 height */
+        margin: 20px auto;
+        padding: 1cm;
+        box-sizing: border-box;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        page-break-after: always; /* For printing */
+    }
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 15px;
+        height: 100%;
+    }
+    .card {
+        border: 2px dashed #aaa; /* Dashed cutting line */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+        text-align: center;
+        position: relative;
+        background-color: #fff;
+        aspect-ratio: 1 / 1; /* Make them squareish */
+    }
+    /* Colorful playful borders */
+    .card.eng { outline: 3px solid #3498db; outline-offset: -6px; border-radius: 8px;}
+    .card.heb { outline: 3px solid #e74c3c; outline-offset: -6px; border-radius: 8px;}
+    .card.eng:nth-child(2n) { outline-color: #2ecc71; }
+    .card.eng:nth-child(3n) { outline-color: #f1c40f; }
+    .card.heb:nth-child(2n) { outline-color: #9b59b6; }
+    .card.heb:nth-child(3n) { outline-color: #e67e22; }
+
+    .eng-word {
+        font-size: 2em;
+        font-weight: bold;
+        color: #333;
+    }
+    .heb-container {
+        direction: rtl;
+    }
+    .image-icon {
+        font-size: 3em;
+        margin-bottom: 10px;
+    }
+    .heb-word {
+        font-size: 1.6em;
+        font-weight: bold;
+        color: #333;
+        direction: rtl;
+        unicode-bidi: embed;
+    }
+    .page-title {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+        color: #666;
+    }
+
+    @media print {
+        body { background-color: white; padding: 0; }
+        .page-container { box-shadow: none; margin: 0; page-break-after: always; }
+    }
+</style>
+</head>
+<body>
+
+<div class="page-container">
+    <div class="page-title">דף 1: אנגלית (לגזירה)</div>
+    <div class="grid-container">
+        <div class="card eng"><span class="eng-word">sit</span></div>
+        <div class="card eng"><span class="eng-word">in</span></div>
+        <div class="card eng"><span class="eng-word">on</span></div>
+        <div class="card eng"><span class="eng-word">fig</span></div>
+        <div class="card eng"><span class="eng-word">dig</span></div>
+        <div class="card eng"><span class="eng-word">big</span></div>
+        <div class="card eng"><span class="eng-word">band</span></div>
+        <div class="card eng"><span class="eng-word">sip</span></div>
+        <div class="card eng"><span class="eng-word">rat</span></div>
+    </div>
+</div>
+
+<div class="page-container">
+    <div class="page-title">דף 2: עברית + תמונה (לגזירה)</div>
+    <div class="grid-container">
+        <div class="card heb"><div class="heb-container"><div class="image-icon">🧘</div><div class="heb-word">לשבת</div></div></div>
+        <div class="card heb"><div class="heb-container"><div class="image-icon">📥</div><div class="heb-word">בתוך</div></div></div>
+        <div class="card heb"><div class="heb-container"><div class="image-icon">⬆️</div><div class="heb-word">על</div></div></div>
+        <div class="card heb"><div class="heb-container"><div class="image-icon">🍇</div><div class="heb-word">תאנה</div></div></div>
+        <div class="card heb"><div class="heb-container"><div class="image-icon">⛏️</div><div class="heb-word">לחפור</div></div></div>
+        <div class="card heb"><div class="heb-container"><div class="image-icon">🐘</div><div class="heb-word">גדול</div></div></div>
+        <div class="card heb"><div class="heb-container"><div class="image-icon">🎸</div><div class="heb-word">להקה</div></div></div>
+        <div class="card heb"><div class="heb-container"><div class="image-icon">🥤</div><div class="heb-word">ללגום</div></div></div>
+        <div class="card heb"><div class="heb-container"><div class="image-icon">🐀</div><div class="heb-word">עכברוש</div></div></div>
+    </div>
+</div>
+
+<div class="page-container">
+    <div class="page-title">דף 3: אנגלית (לגזירה)</div>
+    <div class="grid-container">
+        <div class="card eng"><span class="eng-word">ran</span></div>
+        <div class="card eng"><span class="eng-word">frog</span></div>
+        <div class="card eng"><span class="eng-word">trip</span></div>
+        <div class="card eng"><span class="eng-word">Rip</span></div>
+        <div class="card eng"><span class="eng-word">lip</span></div>
+        <div class="card eng"><span class="eng-word">lid</span></div>
+        <div class="card eng"><span class="eng-word">fog</span></div>
+        <div class="card eng"><span class="eng-word">log</span></div>
+        <div class="card eng"><span class="eng-word">leg</span></div>
+    </div>
+</div>
+
+<div class="page-container">
+    <div class="page-title">דף 4: עברית + תמונה (לגזירה)</div>
+    <div class="grid-container">
+        <div class="card heb"><div class="heb-container"><div class="image-icon">🏃</div><div class="heb-word">רץ</div></div></div>
+        <div class="card heb"><div class="heb-container"><div class="image-icon">🐸</div><div class="heb-word">צפרדע</div></div></div>
+        <div class="card heb"><div class="heb-container"><div class="image-icon">🎒</div><div class="heb-word">טיול</div></div></div>
+        <div class="card heb"><div class="heb-container"><div class="image-icon">📄</div><div class="heb-word">לקרוע</div></div></div>
+        <div class="card heb"><div class="heb-container"><div class="image-icon">👄</div><div class="heb-word">שפה</div></div></div>
+        <div class="card heb"><div class="heb-container"><div class="image-icon">🥘</div><div class="heb-word">מכסה</div></div></div>
+        <div class="card heb"><div class="heb-container"><div class="image-icon">🌫️</div><div class="heb-word">ערפל</div></div></div>
+        <div class="card heb"><div class="heb-container"><div class="image-icon">🪵</div><div class="heb-word">בול עץ</div></div></div>
+        <div class="card heb"><div class="heb-container"><div class="image-icon">🦵</div><div class="heb-word">רגל</div></div></div>
+    </div>
+</div>
+
+<div class="page-container">
+    <div class="page-title">דף 5: אנגלית (לגזירה)</div>
+    <div class="grid-container">
+        <div class="card eng"><span class="eng-word">hot</span></div>
+        <div class="card eng"><span class="eng-word">hen</span></div>
+        <div class="card eng"><span class="eng-word">men</span></div>
+        <div class="card eng"><span class="eng-word">fat</span></div>
+        <div class="card eng"><span class="eng-word">bat</span></div>
+        <div class="card eng"><span class="eng-word">hand</span></div>
+        <div class="card eng"><span class="eng-word">bin</span></div>
+        <div class="card eng"><span class="eng-word">tin</span></div>
+        <div class="card eng"><span class="eng-word">nap</span></div>
+    </div>
+</div>
+
+<div class="page-container">
+    <div class="page-title">דף 6: עברית + תמונה (לגזירה)</div>
+    <div class="grid-container">
+        <div class="card heb"><div class="heb-container"><div class="image-icon">🔥</div><div class="heb-word">חם</div></div></div>
+        <div class="card heb"><div class="heb-container"><div class="image-icon">🐔</div><div class="heb-word">תרנגולת</div></div></div>
+        <div class="card heb"><div class="heb-container"><div class="image-icon">👥</div><div class="heb-word">אנשים</div></div></div>
+        <div class="card heb"><div class="heb-container"><div class="image-icon"></div><div class="heb-word">שמן</div></div></div>
+        <div class="card heb"><div class="heb-container"><div class="image-icon">🦇</div><div class="heb-word">עטלף</div></div></div>
+        <div class="card heb"><div class="heb-container"><div class="image-icon">✋</div><div class="heb-word">יד</div></div></div>
+        <div class="card heb"><div class="heb-container"><div class="image-icon">🗑️</div><div class="heb-word">פח</div></div></div>
+        <div class="card heb"><div class="heb-container"><div class="image-icon">🥫</div><div class="heb-word">פחית</div></div></div>
+        <div class="card heb"><div class="heb-container"><div class="image-icon">😴</div><div class="heb-word">תנומה</div></div></div>
+    </div>
+</div>
+
+</body>
+</html>
